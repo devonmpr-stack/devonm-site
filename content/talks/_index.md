@@ -1,5 +1,5 @@
 ---
-title: "talks"
+title: "Happenings"
 ---
 
 - Culligan Tri-State 2025 — *Looking Beyond the Scare Tactics and Scams: AI Today and What a Culligan Dealer Needs to Know*---
