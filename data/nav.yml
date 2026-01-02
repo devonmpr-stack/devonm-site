@@ -1,0 +1,9 @@
+items:
+  - label: "Books"
+    url: "/books/"
+  - label: "Articles"
+    url: "/articles/"
+  - label: "Happenings"
+    url: "/happenings/"
+  - label: "About"
+    url: "/about/"
