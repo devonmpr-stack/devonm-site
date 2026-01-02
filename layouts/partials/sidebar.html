@@ -1,13 +1,5 @@
-<aside class="sidebar">
-  <div class="brand">
-    <a class="name" href="/">Devon Moore</a>
-  </div>
-
-  <nav class="nav">
-    <a href="/writing/">writing</a>
-    <a href="/talks/">talks</a>
-    <a href="/links/">links</a>
-    <a href="/about/">about</a>
-  </nav>
-</aside>
-
+<nav class="sidebar-nav">
+  {{ range site.Data.nav.items }}
+    <a href="{{ .url }}">{{ .label }}</a>
+  {{ end }}
+</nav>
