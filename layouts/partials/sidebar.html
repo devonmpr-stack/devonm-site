@@ -1,7 +1,13 @@
 <aside class="sidebar">
-  <nav class="sidebar-nav">
-    {{ range site.Data.nav.items }}
-      <a href="{{ .url }}">{{ .label }}</a>
-    {{ end }}
-  </nav>
+  <div class="sidebar-inner">
+    <div class="site-name">
+      <a href="/">{{ site.Title }}</a>
+    </div>
+
+    <nav class="nav">
+      {{ range site.Data.nav.items }}
+        <a class="nav-link" href="{{ .url }}">{{ .label }}</a>
+      {{ end }}
+    </nav>
+  </div>
 </aside>
