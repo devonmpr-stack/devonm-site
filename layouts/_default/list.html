@@ -1,6 +1,13 @@
 {{ define "main" }}
   <article>
     {{ .Content }}
+
+    {{ if .Pages }}
+      <div class="list">
+        {{ range .Pages.ByDate.Reverse }}
+          <p><a href="{{ .RelPermalink }}">{{ .Title }}</a></p>
+        {{ end }}
+      </div>
+    {{ end }}
   </article>
 {{ end }}
-
