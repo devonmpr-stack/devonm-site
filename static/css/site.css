@@ -1,73 +1,148 @@
-/* Layout */
+/* ---------- Base ---------- */
+html, body {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  color: #222;
+  background: #fff;
+  font-family: "Libre Baskerville", Georgia, "Times New Roman", serif;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+/* Keep links “qy-like” (blue in content, muted in nav) */
+a {
+  color: #1a55ff;
+  text-decoration: none;
+}
+a:hover {
+  text-decoration: underline;
+}
+
+/* ---------- Layout ---------- */
 .layout {
   display: flex;
   min-height: 100vh;
+  align-items: flex-start;
 }
 
-/* Sidebar */
 .sidebar {
-  width: 280px;
-  padding: 60px 40px;
+  width: 260px;
+  padding: 56px 46px;
+  flex: 0 0 auto;
 }
 
 .sidebar-inner {
   position: relative;
   text-align: center;
+  padding-right: 34px; /* room for the divider */
 }
 
-/* Vertical divider */
+/* vertical divider */
 .sidebar-inner::after {
   content: "";
   position: absolute;
-  top: 0;
-  right: -30px;
+  top: 6px;
+  right: 0;
   width: 1px;
-  height: 420px;
-  background: #d9d9d9;
+  height: 520px; /* tweak to taste */
+  background: #d7d7d7;
 }
 
-/* Site name */
+/* ---------- Sidebar: name ---------- */
+.site-name {
+  margin: 0;
+  line-height: 0.95;
+  letter-spacing: -0.02em;
+}
+
 .site-name a {
-  font-family: "Libre Baskerville", Georgia, "Times New Roman", serif;
-  font-size: 56px;            /* ⬅️ increased (44px was too small) */
-  font-weight: 700;
-  letter-spacing: -0.02em;    /* ⬅️ refined */
-  line-height: 1.05;
   color: #222;
   text-decoration: none;
+  font-weight: 700;
+  font-size: 56px; /* qy-like big name */
 }
 
-/* Navigation */
+/* ---------- Sidebar: nav ---------- */
 .nav {
-  margin-top: 28px;
+  margin-top: 34px;
   display: flex;
   flex-direction: column;
   gap: 18px;
 }
 
 .nav-link {
-  font-family: "Libre Baskerville", Georgia, "Times New Roman", serif;
-  font-size: 34px;
-  font-weight: 400;           /* ⬅️ 300 was a little too light */
   color: #b8b8b8;
-  text-decoration: none;
-  line-height: 1.15;
-  text-transform: lowercase; /* ⬅️ matches reference */
+  font-size: 34px;
+  font-weight: 300;
+  line-height: 1.05;
+  text-transform: lowercase; /* qy uses lowercase */
 }
 
-/* Hover */
 .nav-link:hover {
   color: #8f8f8f;
 }
 
-/* Active */
 .nav-link.active {
-  color: #222;
-  text-decoration: underline;
+  color: #b8b8b8;          /* keep the muted look */
+  text-decoration: none;   /* qy doesn’t underline in nav */
 }
 
-/* Global text */
-body {
-  font-family: "Libre Baskerville", Georgia, "Times New Roman", serif;
+/* ---------- Content column ---------- */
+.content {
+  padding: 56px 60px;
+  max-width: 860px;
+}
+
+/* page titles (e.g., “Links”) */
+.content h1 {
+  margin: 0 0 10px 0;
+  font-size: 28px;
+  font-weight: 700;
+  letter-spacing: -0.01em;
   color: #222;
+}
+
+/* intro text under title */
+.content p {
+  margin: 10px 0 18px 0;
+  font-size: 16px;
+  line-height: 1.7;
+  color: #333;
+}
+
+/* list pages (your Articles/Happenings links) */
+.list p {
+  margin: 18px 0;
+}
+
+.list a {
+  font-size: 16px;
+  line-height: 1.8;
+}
+
+/* ---------- Responsive ---------- */
+@media (max-width: 900px) {
+  .layout {
+    flex-direction: column;
+  }
+
+  .sidebar {
+    width: auto;
+    padding: 28px 22px;
+  }
+
+  .sidebar-inner {
+    padding-right: 0;
+  }
+
+  .sidebar-inner::after {
+    display: none;
+  }
+
+  .content {
+    padding: 24px 22px 48px 22px;
+  }
 }
