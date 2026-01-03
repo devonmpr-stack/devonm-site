@@ -1,5 +1,7 @@
-<nav class="sidebar-nav">
-  {{ range site.Data.nav.items }}
-    <a href="{{ .url }}">{{ .label }}</a>
-  {{ end }}
-</nav>
+<aside class="sidebar">
+  <nav class="sidebar-nav">
+    {{ range site.Data.nav.items }}
+      <a href="{{ .url }}">{{ .label }}</a>
+    {{ end }}
+  </nav>
+</aside>
