@@ -1,0 +1,27 @@
+{{ define "main" }}
+<article>
+  <h1>{{ .Title }}</h1>
+  {{ .Content }}
+
+  {{ if .Pages }}
+    <div class="books-list">
+      {{ range .Pages.ByDate.Reverse }}
+        <div class="book">
+          {{ with .Params.cover }}
+            <div class="book-cover">
+              <img src="{{ . }}" alt="{{ $.Title }}" loading="lazy" />
+            </div>
+          {{ end }}
+          <div class="book-body">
+            <h2 class="book-title"><a href="{{ .RelPermalink }}">{{ .Title }}</a></h2>
+            {{ with .Params.author }}<p class="book-author">{{ . }}</p>{{ end }}
+            <div class="book-thoughts">
+              {{ .Content }}
+            </div>
+          </div>
+        </div>
+      {{ end }}
+    </div>
+  {{ end }}
+</article>
+{{ end }}
