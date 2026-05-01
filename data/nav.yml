@@ -7,7 +7,5 @@ items:
     url: /photos/
   - label: Links
     url: /links/
-  - label: Press
-    url: /press/
   - label: About
     url: /about/

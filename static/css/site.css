@@ -328,3 +328,46 @@ a:hover {
   line-height: 1.6;
   max-width: 540px;
 }
+
+/* Photos page: let the grid breathe wider than the default content column */
+.photos {
+  max-width: none;
+}
+
+.photos h1 {
+  margin-bottom: 18px;
+}
+
+/* When photos are inside .content, override its 700px cap visually
+   by letting the grid extend beyond. We accomplish this by giving
+   .content a wider max-width on the photos route. */
+
+/* Expand the content column when rendering the photos page */
+.content:has(.photos) {
+  max-width: 1200px;
+}
+
+/* Tighter grid for content-column-width photos */
+.photos .photos-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 12px;
+  margin-top: 8px;
+}
+
+.photos .photos-grid img {
+  width: 100%;
+  height: 220px;
+  object-fit: cover;
+  display: block;
+}
+
+@media (max-width: 900px) {
+  .photos .photos-grid {
+    grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+    gap: 8px;
+  }
+  .photos .photos-grid img {
+    height: 140px;
+  }
+}

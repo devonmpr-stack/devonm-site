@@ -1,10 +1,6 @@
-{{ define "layout" }}
-<div class="photos-layout">
-  <div class="photos-header">
-    <h1>{{ .Title }}</h1>
-    <a class="back" href="/">← Devon Moore</a>
-  </div>
-
+{{ define "main" }}
+<article class="photos">
+  <h1>{{ .Title }}</h1>
   {{ .Content }}
 
   {{ $photos := slice }}
@@ -30,5 +26,5 @@
   {{ else }}
     <p class="photos-empty">Drop images into <code>static/photos/</code> and they'll show up here.</p>
   {{ end }}
-</div>
+</article>
 {{ end }}
