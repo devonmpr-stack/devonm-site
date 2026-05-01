@@ -1,0 +1,11 @@
+{{ define "main" }}
+<article>
+  <p><a href="/books/">← Books</a></p>
+  <h1>{{ .Title }}</h1>
+  {{ with .Params.author }}<p class="book-author"><em>{{ . }}</em></p>{{ end }}
+  {{ with .Params.cover }}
+    <p><img src="{{ . }}" alt="{{ $.Title }}" style="max-width: 200px; box-shadow: 0 1px 3px rgba(0,0,0,0.12);" /></p>
+  {{ end }}
+  {{ .Content }}
+</article>
+{{ end }}

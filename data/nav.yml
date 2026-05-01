@@ -1,9 +1,11 @@
 items:
-  - label: About
-    url: /about/
-  - label: Articles
-    url: /articles/
-  - label: Happenings
-    url: /happenings/
   - label: Books
     url: /books/
+  - label: Writings
+    url: /writings/
+  - label: Photos
+    url: /photos/
+  - label: Links
+    url: /links/
+  - label: About
+    url: /about/

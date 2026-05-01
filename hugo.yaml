@@ -1,3 +1,10 @@
 baseURL: https://devonm.co/
 languageCode: en-us
 title: Devon Moore
+
+# Build settings
+ignoreFiles:
+  - "\\.hugo_build\\.lock$"
+
+# Make sure section pages render properly
+sectionPagesMenu: main

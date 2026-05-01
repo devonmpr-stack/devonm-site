@@ -5,8 +5,10 @@
     </div>
 
     <nav class="nav">
+      {{ $currentSection := "" }}
+      {{ if .Section }}{{ $currentSection = printf "/%s/" .Section }}{{ end }}
       {{ range site.Data.nav.items }}
-        <a class="nav-link" href="{{ .url }}">{{ .label }}</a>
+        <a class="nav-link {{ if eq $currentSection .url }}active{{ end }}" href="{{ .url }}">{{ .label | lower }}</a>
       {{ end }}
     </nav>
   </div>

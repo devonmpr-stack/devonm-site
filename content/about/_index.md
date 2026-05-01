@@ -1,5 +1,5 @@
 ---
-title: about
+title: "About"
 ---
-Example text example text
 
+Add your bio here. Keep it short — a paragraph or two about who you are and what you work on.

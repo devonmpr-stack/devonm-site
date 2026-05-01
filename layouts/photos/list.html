@@ -1,0 +1,30 @@
+{{ define "main" }}
+<article class="photos">
+  <h1>{{ .Title }}</h1>
+  {{ .Content }}
+
+  {{ $photos := slice }}
+  {{ $exts := slice ".jpg" ".jpeg" ".png" ".webp" }}
+  {{ range (readDir "static/photos") }}
+    {{ if not .IsDir }}
+      {{ $name := .Name }}
+      {{ $lower := lower $name }}
+      {{ range $exts }}
+        {{ if hasSuffix $lower . }}
+          {{ $photos = $photos | append $name }}
+        {{ end }}
+      {{ end }}
+    {{ end }}
+  {{ end }}
+
+  {{ if $photos }}
+    <div class="photos-grid">
+      {{ range $photos }}
+        <a href="/photos/{{ . }}"><img src="/photos/{{ . }}" alt="" loading="lazy" /></a>
+      {{ end }}
+    </div>
+  {{ else }}
+    <p class="photos-empty">Drop images into <code>static/photos/</code> and they'll show up here.</p>
+  {{ end }}
+</article>
+{{ end }}

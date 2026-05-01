@@ -3,18 +3,21 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>{{ if .Title }}{{ .Title }} · {{ end }}Devon Moore</title>
+  <title>{{ if .Title }}{{ .Title }} · {{ end }}{{ site.Title }}</title>
+  <meta name="description" content="{{ with .Description }}{{ . }}{{ else }}{{ site.Title }}{{ end }}" />
   <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="/css/site.css" />
 </head>
 <body>
+  {{ block "layout" . }}
   <div class="layout">
     {{ partial "sidebar.html" . }}
     <main class="content">
       {{ block "main" . }}{{ end }}
     </main>
   </div>
+  {{ end }}
 </body>
 </html>
